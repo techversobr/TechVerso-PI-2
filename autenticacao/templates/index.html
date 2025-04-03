@@ -47,6 +47,17 @@
         </ul>
     </nav>
 
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+            if (document.querySelector('.menu').style.display === 'block') {
+                document.querySelector('.menu').style.display = 'none';
+            } else {
+                document.querySelector('.menu').style.display = 'block';
+            }
+        });
+    </script>
+
     <div class="slideshow-container">
         <div class="mySlides fade">
             <img src="imagem/" style="width:100%">
