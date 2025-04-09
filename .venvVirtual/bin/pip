@@ -1,4 +1,4 @@
-#!/home/virtualwill/Documentos/GitHub/TechVerso/venvVirtual/bin/python3
+#!/home/virtualwill/Documentos/GitHub/TechVerso/.venvVirtual/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
