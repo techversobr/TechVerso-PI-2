@@ -23,6 +23,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -106,14 +107,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 SESSION_EXPIRE_SECONDS = 1800 
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
-SESSION_TIMEOUT_REDIRECT = 'home'
+SESSION_TIMEOUT_REDIRECT = '/'
 
 
 # Parametros para os usuarios
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 
 # Internationalization
@@ -154,3 +155,8 @@ MESSAGE_TAGS = {
 	constants.SUCCESS: 'alert-success',
 	constants.INFO: 'alert-info',
 }
+
+
+# Para envio de e-mail
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
