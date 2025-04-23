@@ -39,9 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # Necessário para o django-allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',  # Para Google
+    'allauth.socialaccount.providers.github',  # Para GitHub
+    'allauth.socialaccount.providers.linkedin',  # Para LinkedIn
     'autenticacao',
     'base',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
