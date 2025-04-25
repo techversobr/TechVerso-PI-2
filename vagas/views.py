@@ -5,6 +5,7 @@ from .models import JobPost
 from .forms import JobPostForm
 
 def index(request):
+    return render(request, 'indexvagas.html')
     create_url = reverse('create')  # Gera a URL para 'create'
     list_url = reverse('list')  # Gera a URL para 'list'
     return HttpResponse(f"""

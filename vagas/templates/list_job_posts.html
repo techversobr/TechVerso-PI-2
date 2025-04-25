@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	<h1>Lista de Vagas</h1>
-	<ul>
-		{% for job in jobs %}
-			<li>
-				<h2>{{ job.title }}</h2>
-				<p>{{ job.description }}</p>
-				<p><strong>Local:</strong> {{ job.location }}</p>
-				<p><strong>Data de publicação:</strong> {{ job.posted_date }}</p>
-			</li>
-		{% empty %}
-			<li>Nenhuma vaga disponível no momento.</li>
-		{% endfor %}
-	</ul>
+<!-- filepath: c:\Users\Usuario\Desktop\PI\TechVerso\vagas\templates\list_job_posts.html -->
+{% extends 'base.html' %}
+
+{% block title %}Lista de Vagas{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Lista de Vagas</h1>
+    <ul class="list-group">
+        {% for job in jobs %}
+            <li class="list-group-item">
+                <h2>{{ job.title }}</h2>
+                <p>{{ job.description }}</p>
+                <p><strong>Local:</strong> {{ job.location }}</p>
+                <p><strong>Salário:</strong> {{ job.salary }}</p>
+                <p><strong>Tipo de Contrato:</strong> {{ job.contract_type }}</p>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhuma vaga disponível no momento.</li>
+        {% endfor %}
+    </ul>
 	<button type="button" onclick="history.back()">Voltar</button>
-</body>
-</html>
+</div>
+{% endblock %}
