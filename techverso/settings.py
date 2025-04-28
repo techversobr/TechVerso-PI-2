@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'sobre',
     'faq',
     'vagas',
+    'widget_tweaks',
 ]
 
 SITE_ID = 1

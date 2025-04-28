@@ -16,7 +16,7 @@
                     {% for field in form %}
                         <div class="mb-3">
                             <label for="{{ field.id_for_label }}" class="form-label" style="font-size: 18px;">{{ field.label }}</label>
-                            <div class="col-sm-12"> <!-- Remova d-flex, pois não é necessário para este caso -->
+                            <div class="col-sm-12">
                                 {{ field }}
                             </div>
 
