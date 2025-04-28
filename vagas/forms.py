@@ -1,10 +1,10 @@
 from django import forms
-from .models import JobPost
+from .models import JobPost, LinguagemProgramacao
 
 class JobPostForm(forms.ModelForm):
     class Meta:
         model = JobPost
-        fields = ['title', 'description', 'location', 'salary', 'contract_type']  # Inclua os novos campos
+        fields = ['titulo', 'descricao', 'cidade', 'salario', 'tipo_contrato','requisitos', 'beneficios', 'carga_horaria', 'local_trabalho', 'area_desenvolvimento','linguagens_programacao','link_inscricao','idioma_necessario','informacoes_empresa','data_publicacao','prazo_inscricao']
 
 
 
