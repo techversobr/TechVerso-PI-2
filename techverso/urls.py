@@ -9,8 +9,6 @@ from vagas import views as vagas_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('base.urls')),
-    path("accounts3/", include("django.contrib.auth.urls")),
-    path('accounts2/', include('allauth.urls')),
     path('accounts/', include('accounts.urls')),
     path('vagas/', include('vagas.urls')),
     path('cursos/', include('cursos.urls')),
