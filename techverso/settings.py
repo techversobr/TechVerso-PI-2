@@ -20,6 +20,10 @@ DEBUG = True
 ALLOWED_HOSTS = ["127.0.0.1",
                  "localhost",]
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'base', 'static'),
+]
+
 
 # Application definition
 
@@ -38,7 +42,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
     'techverso',
-    'autenticacao',
     'base',
     'cursos',
     'sobre',

@@ -4,22 +4,19 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from accounts import views
-from autenticacao import views
 from vagas import views as vagas_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path("accounts/", include("django.contrib.auth.urls")),
-    path('accounts/', include('allauth.urls')),
-    path('register/', include('accounts.urls')),
-    path('autenticacao/', include('autenticacao.urls')),
+    path('', include('base.urls')),
+    path("accounts3/", include("django.contrib.auth.urls")),
+    path('accounts2/', include('allauth.urls')),
+    path('accounts/', include('accounts.urls')),
     path('vagas/', include('vagas.urls')),
     path('cursos/', include('cursos.urls')),
     path('sobre/', include('sobre.urls')),
     path("faq/", include("faq.urls")),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('login/', auth_views.LoginView.as_view(), name='login'),
+    
 
 ]
 
