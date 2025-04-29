@@ -56,7 +56,7 @@
           <p><strong>Salário:</strong> {{ job.salario }}</p>
           <p><strong>Area desenvolvimento:</strong> {{ job.area_desenvolvimento }}</p>
           <p><strong>Tipo de Contrato:</strong> {{ job.tipo_contrato }}</p>
-          <p><strong>Link de Inscrição:</strong> {{ link_inscricao }}</p>
+          <p><strong>Link de Inscrição:</strong> <a href="{{ job.link_inscricao }}" target="_blank">{{ job.link_inscricao }}</a></p>
           {% if job.data_publicacao %}
           <p><strong>Publicado em:</strong> {{ job.data_publicacao|date:"d/m/Y" }}</p>
           {% endif %}
