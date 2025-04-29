@@ -51,10 +51,12 @@
       {% for job in jobs %}
       <li class="list-group-item">
           <h2>{{ job.titulo }}</h2>
-          <p>{{ job.descricao }}</p>
-          <p><strong>Local:</strong> {{ job.cidade }}</p>
+          <p>{{ job.local_trabalho }}</p>
+          <p><strong>Cidade:</strong> {{ job.cidade }}</p>
           <p><strong>Salário:</strong> {{ job.salario }}</p>
+          <p><strong>Area desenvolvimento:</strong> {{ job.area_desenvolvimento }}</p>
           <p><strong>Tipo de Contrato:</strong> {{ job.tipo_contrato }}</p>
+          <p><strong>Link de Inscrição:</strong> {{ link_inscricao }}</p>
           {% if job.data_publicacao %}
           <p><strong>Publicado em:</strong> {{ job.data_publicacao|date:"d/m/Y" }}</p>
           {% endif %}
