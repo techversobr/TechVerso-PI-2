@@ -1,27 +1,38 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load socialaccount %}
+{% load static %}
 
 {% block title %}Login{% endblock %}
 
 {% block content %}
-
 <div class="col-md-4">
-    <form method="post">
-        {% csrf_token %}
+  <h4>Entrar com sua conta</h4>
+  <form method="post" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success mt-3" type="submit">Entrar</button>
+  </form>
 
-        <div class="mb-3">
-            <label class="form-label" for="id_username">Usuário:</label>
-            <input type="text" name="username" class="form-control">
-        </div>
-        
-        <div class="mb-3">
-            <label class="form-label" for="id_password">Senha:</label>
-            <input type="password" name="password" class="form-control">
-        </div>
+  <hr />
 
-        <button class="btn btn-warning" type="submit">Entrar</button>
-    </form>
-    
-    <a href="{% url 'password_reset' %}">Esqueci minha senha</a>
+  <h5>Ou entre com sua rede social:</h5>
+  <div class="social-media-details">
+    <a href="{% provider_login_url 'github' process='login' %}">
+      <img
+        src="{% static 'images/github-48.gif' %}"
+        alt="Ícone GitHub"
+        class="social-media-icon"
+      />
+    </a>
+    <a href="{% provider_login_url 'google' process='login' %}">
+      <img
+        src="{% static 'images/google-icon.png' %}"
+        alt="Ícone Google"
+        class="social-media-icon"
+      />
+    </a>
+  </div>
 </div>
+
 
 {% endblock %}
