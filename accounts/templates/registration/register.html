@@ -26,15 +26,41 @@
         />
         <p></p>
       </a>
-      {% comment %} <a href="http://localhost:8000/accounts/google/login/?process=login">
+      <a href="{% provider_login_url 'google' process='login' %}">
         <img
-          src="{% static 'images/google-icon.png' %}"
-          alt="Ícone para realizar a autenticação com Google"
-          class="social-media-icon"
+            src="{% static 'images/google-icon.png' %}"
+            alt="Ícone para realizar a autenticação com Google"
+            class="social-media-icon"
         />
-        <p></p>
-      </a> {% endcomment %}
+      </a>
+    
     </div>
   </form>
 </div>
+
+<style>
+  .social-media-details {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* espaçamento entre os ícones */
+    margin-top: 10px;
+  }
+  
+  .social-media-details a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .social-media-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s;
+  }
+  
+  .social-media-icon:hover {
+    transform: scale(1.2); /* efeito sutil ao passar o mouse */
+  }
+  
+</style>
 {% endblock %}
