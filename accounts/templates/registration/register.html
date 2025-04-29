@@ -1,15 +1,40 @@
 {% extends 'base.html' %}
+{% load static %} 
+{% load socialaccount %} 
+{% block title %}Registrar{% endblock %} 
+{% block content %}
 
-{% block title %}Registrar{% endblock %}
-
-{% block content %} 
 <div class="col-md-4">
-    <h4>Criar uma conta</h4>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-warning mt-3" type="submit">Registrar</button>
-    </form>
-</div>
+  
+  <h4>Criar uma nova conta</h4>
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
 
+    <button class="btn btn-warning mt-3" type="submit">Registrar</button>
+
+    
+    <hr />
+
+
+    <h5>Ou Registre-se com sua rede social:</h5>
+    <div class="social-media-details">
+      <a href="http://localhost:8000/accounts/github/login/?process=login">
+        <img
+          src="{% static 'images/github-48.gif' %}"
+          alt="Ícone para realizar a autenticação com GitHub"
+          class="social-media-icon"
+        />
+        <p></p>
+      </a>
+      {% comment %} <a href="http://localhost:8000/accounts/google/login/?process=login">
+        <img
+          src="{% static 'images/google-icon.png' %}"
+          alt="Ícone para realizar a autenticação com Google"
+          class="social-media-icon"
+        />
+        <p></p>
+      </a> {% endcomment %}
+    </div>
+  </form>
+</div>
 {% endblock %}

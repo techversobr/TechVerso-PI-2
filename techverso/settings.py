@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'techverso.wsgi.application'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',  # Django Allauth backend
+    'allauth.account.auth_backends.AuthenticationBackend',
     
 ]
 
@@ -137,6 +137,8 @@ SESSION_TIMEOUT_REDIRECT = '/'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_ON_GET = True
+
 
 
 # Internationalization
@@ -158,6 +160,9 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "base/static"),  # Diretório onde os arquivos estáticos estão localizados
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
