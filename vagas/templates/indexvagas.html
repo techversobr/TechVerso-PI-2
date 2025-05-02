@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Página Inicial - Vagas{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Bem-vindo à Página de Vagas</h1>
+    <p>Aqui você pode gerenciar as vagas disponíveis.</p>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a class="btn btn-primary" href="{% url 'create' %}">Postar Vagas</a>
+        </li>
+        <li class="list-group-item">
+            <a class="btn btn-secondary" href="{% url 'list' %}">Listar Vagas</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

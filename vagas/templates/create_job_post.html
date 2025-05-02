@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Criar Vaga{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+		<h1>Criar Nova Vaga</h1>
+		<form action="." method="post" onsubmit="handleFormSubmit(event)">
+			{% csrf_token %}
+			{{ form.as_p }}  <!-- Exibe todos os campos do formulário -->
+			<button type="submit">Salvar Vaga</button>
+			<button type="reset">Limpar</button>
+			<button type="button" onclick="history.back()">Voltar</button>
+		</form>
+</div>
+{% endblock %}
