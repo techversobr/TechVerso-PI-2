@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'ArcadeGamer';
+    src: url('fonts/ARCADECLASSIC.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .fonte-arcade {
+    font-family: 'ArcadeGamer', sans-serif;
+  }
+
 body {
     background-image: url('../images/background-site.png');
     background-size: cover;
@@ -19,11 +30,13 @@ body {
     }
       
       /* Título ocupa toda a largura e quebra texto longo automaticamente */
-.cont h1 {
-    margin: 0 0 2rem;        /* margem inferior para espaçamento */
-    overflow-wrap: break-word; /* permite quebra dentro de palavras muito longas */
-    word-wrap: break-word;     /* alias para compatibilidade legada */
-      }
+ .cont h1 {
+    font-family: ArcadeGamer, Helvetica, sans-serif;
+    margin: 0 0 2rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    }
+    
 
 
 
