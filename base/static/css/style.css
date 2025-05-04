@@ -4,10 +4,17 @@ body {
     background-repeat: repeat;
     color: white;
     font-family: Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    position: relative;	
+    position: relative;	   
+    width: 33.33%;           /* 1/3 da largura do contêiner pai */
+    margin: 2rem auto 1rem;  /* margem superior (espaço vertical) e auto nas laterais */
+    padding-top: 1rem;       /* (opcional) espaçamento interno superior */
+    box-sizing: border-box;  /* inclui padding e border no cálculo de largura */
+    
+       
 }
+
+
+
 
 /*.navbar a,
 .navbar .nav-link,

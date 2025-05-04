@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %}TechVerso{% endblock %}
-
 {% block content %}
-	<h1>TechVerso</h1>
+    <div>
+        <h1>Transformando troca de ideias em conexões que impulsionam o futuro.</h1>
+        <p>Quer entrar no universo da programação? Confira os cursos que estão bombando agora!</p>
+        <p>{{ social }}</p>
+    </div>
+{% endblock %}
 
-	<p>Testando o context Global</p>
-	<p>{{social}}</p>
-
+{% block extra_head %}
+    
+	
+		
+    </style>
 {% endblock %}
