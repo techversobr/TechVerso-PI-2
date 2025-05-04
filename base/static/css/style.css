@@ -27,16 +27,21 @@ body {
     padding-top: 1rem;       /* (opcional) espaçamento interno superior */
     box-sizing: border-box;  /* inclui padding e border no cálculo de largura */
     text-align: center;
+    font-size: 18px;
     }
       
       /* Título ocupa toda a largura e quebra texto longo automaticamente */
  .cont h1 {
     font-family: ArcadeGamer, Helvetica, sans-serif;
+    font-size: 30px;
     margin: 0 0 2rem;
     overflow-wrap: break-word;
     word-wrap: break-word;
     }
+
+.social{
     
+}
 
 
 
