@@ -20,3 +20,5 @@ def register(request):
                 
         return render(request, "registration/register.html",{"form": form})
 
+def form_cursos(request):
+    return render(request, 'formularios/form_cursos.html')
