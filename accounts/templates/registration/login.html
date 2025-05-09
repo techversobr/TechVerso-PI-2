@@ -1,4 +1,6 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load socialaccount %}
+{% load static %}
 
 {% load static widget_tweaks %}  <!-- Carregar o widget_tweaks -->
 
@@ -47,5 +49,6 @@
 </div>
 
 <script src="{% static 'js/password_strength.js' %}"></script>
+
 
 {% endblock %}

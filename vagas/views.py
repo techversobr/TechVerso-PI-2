@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse  # Importação corrigida
 from django.http import HttpResponse
-from .models import JobPost
+from .models import JobPost, LinguagemProgramacao
 from .forms import JobPostForm
 from django.contrib.auth.decorators import login_required
 
@@ -38,5 +38,34 @@ def create_job_post(request):
     return render(request, 'create_job_post.html', {'form': form})
 
 def list_job_posts(request):
-    jobs = JobPost.objects.all()  # Obtém todas as vagas do banco de dados
-    return render(request, 'list_job_posts.html', {'jobs': jobs})  # Passa o contexto 'jobs'
+    jobs = JobPost.objects.all()
+
+    # Filtragem
+    titulo = request.GET.get('titulo')
+    descricao = request.GET.get('descricao')
+    cidade = request.GET.get('cidade')
+    salario = request.GET.get('salario')
+    tipo_contrato = request.GET.get('tipo_contrato')
+
+    if titulo:
+        jobs = jobs.filter(titulo__icontains=titulo)
+    if descricao:
+        jobs = jobs.filter(descricao__icontains=descricao)
+    if cidade:
+        jobs = jobs.filter(cidade__icontains=cidade)
+    if salario:
+        try:
+            salario = float(salario)
+            jobs = jobs.filter(salario=salario) # Ou salario__gte/lte para faixas
+        except ValueError:
+            pass # Ignora se o valor do salário não for um número válido
+    if tipo_contrato:
+        jobs = jobs.filter(tipo_contrato=tipo_contrato)
+
+    # Ordenação
+    ordenacao = request.GET.get('ordenacao')
+    if ordenacao:
+        jobs = jobs.order_by(ordenacao)
+
+    context = {'jobs': jobs}
+    return render(request, 'list_job_posts.html', context)
