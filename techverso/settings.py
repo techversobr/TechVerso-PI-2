@@ -4,8 +4,8 @@ from django.contrib.messages import constants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
-STATIC_DIR=os.path.join(BASE_DIR,'static')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -17,16 +17,15 @@ SECRET_KEY = 'django-insecure-cc1@c!hb-zhx@hy18xi4r-11-%53)c8g$l1!wrva=$#!7rwy^k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-   # "a1f3-2804-2dc-ff22-7c01-8cbf-54bb-c8bd-af4d.ngrok-free.app",
-    "192.168.3.2"
-]
 
-CSRF_TRUSTED_ORIGINS = [
    # "https://a1f3-2804-2dc-ff22-7c01-8cbf-54bb-c8bd-af4d.ngrok-free.app",
-]
+  
+ALLOWED_HOSTS = ["127.0.0.1",
+                 "localhost",]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'base', 'static'),
+
 
 
 # Application definition
@@ -38,10 +37,23 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
-    'autenticacao',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    'techverso',
     'base',
+    'cursos',
+    'sobre',
+    'faq',
+    'vagas',
+    'widget_tweaks',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,8 +62,10 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'techverso.urls'
@@ -59,7 +73,7 @@ ROOT_URLCONF = 'techverso.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,6 +90,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'techverso.wsgi.application'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',  # Django Allauth backend
+    
+]
+
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -85,7 +105,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'techverso',
         'USER': 'root',
-        'PASSWORD': '549vbYu21M0*',
+        'PASSWORD': 'jpca1219',
         'HOST': 'localhost',
         'PORT': 3306,
     }
@@ -114,7 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Timeout, tempo de inatividade no sistema
 # DOC https://pypi.org/project/django-session-timeout/
 
-SESSION_EXPIRE_SECONDS = 1800 
+SESSION_EXPIRE_SECONDS = 1800
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 SESSION_TIMEOUT_REDIRECT = '/'
 
@@ -143,10 +163,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-STATIC_URL = '/static/' 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Default primary key field type
@@ -158,11 +178,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Mensagens https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
 
 MESSAGE_TAGS = {
-	constants.ERROR: 'alert-danger',
-	constants.WARNING: 'alert-warning',
-	constants.DEBUG: 'alert-info',
-	constants.SUCCESS: 'alert-success',
-	constants.INFO: 'alert-info',
+    constants.ERROR: 'alert-danger',
+    constants.WARNING: 'alert-warning',
+    constants.DEBUG: 'alert-info',
+    constants.SUCCESS: 'alert-success',
+    constants.INFO: 'alert-info',
 }
 
 
