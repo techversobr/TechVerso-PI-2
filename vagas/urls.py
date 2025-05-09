@@ -5,8 +5,8 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path("", views.index, name="vagas"),
-    path('', views.create_job_post, name='create'),
-    path('', views.list_job_posts, name='list'),
+    path('create/', views.create_job_post, name='create'),
+    path('list/', views.list_job_posts, name='list'),
 
 ]
 urlpatterns += [

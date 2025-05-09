@@ -20,6 +20,10 @@ DEBUG = True
 ALLOWED_HOSTS = ["127.0.0.1",
                  "localhost",]
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'base', 'static'),
+]
+
 
 # Application definition
 
@@ -38,12 +42,12 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
     'techverso',
-    'autenticacao',
     'base',
     'cursos',
     'sobre',
     'faq',
     'vagas',
+    'widget_tweaks',
 ]
 
 SITE_ID = 1
@@ -98,7 +102,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'techverso',
         'USER': 'root',
-        'PASSWORD': '1003',
+        'PASSWORD': 'jpca1219',
         'HOST': 'localhost',
         'PORT': 3306,
     }

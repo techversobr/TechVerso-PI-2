@@ -3,6 +3,8 @@ from django.urls import reverse  # Importação corrigida
 from django.http import HttpResponse
 from .models import JobPost, LinguagemProgramacao
 from .forms import JobPostForm
+from django.contrib.auth.decorators import login_required
+
 
 def index(request):
     return render(request, 'indexvagas.html')
@@ -24,6 +26,7 @@ def form_django(request):
     }
     return render(request, '/templates/create_job_post.html', context=context)
 
+@login_required
 def create_job_post(request):
     if request.method == 'POST':
         form = JobPostForm(request.POST)

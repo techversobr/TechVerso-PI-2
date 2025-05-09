@@ -2,37 +2,53 @@
 {% load socialaccount %}
 {% load static %}
 
+{% load static widget_tweaks %}  <!-- Carregar o widget_tweaks -->
+
 {% block title %}Login{% endblock %}
-
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 {% block content %}
-<div class="col-md-4">
-  <h4>Entrar com sua conta</h4>
-  <form method="post" action="{% url 'account_login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-success mt-3" type="submit">Entrar</button>
-  </form>
 
-  <hr />
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="form-container p-4 shadow rounded" style="background-color: rgba(169, 169, 169, 0.85); border: 2px solid #ccc; border-radius: 10px;">
+                <h3 class="text-center mb-5">Entrar na sua conta</h3>
+                <form method="post" class="w-100">
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                        <div class="mb-3">
+                            <label for="{{ field.id_for_label }}" class="form-label" style="font-size: 18px; text-align: center; display: block;">{{ field.label }}</label>
+                            <div class="col-sm-12 text-center">
+                                <!-- Usando o filtro add_class do widget_tweaks para adicionar classes -->
+                                <div class="input-group">
+                                    {{ field|add_class:"form-control rounded" }}
+                                </div>
+                            </div>
 
-  <h5>Ou entre com sua rede social:</h5>
-  <div class="social-media-details">
-    <a href="{% provider_login_url 'github' process='login' %}">
-      <img
-        src="{% static 'images/github-48.gif' %}"
-        alt="Ícone GitHub"
-        class="social-media-icon"
-      />
-    </a>
-    <a href="{% provider_login_url 'google' process='login' %}">
-      <img
-        src="{% static 'images/google-icon.png' %}"
-        alt="Ícone Google"
-        class="social-media-icon"
-      />
-    </a>
-  </div>
+                            {% if field.help_text %}
+                                <small class="help-text-dourado d-block text-center mt-2">{{ field.help_text|safe }}</small>
+                            {% endif %}
+
+                            {% for error in field.errors %}
+                                <div class="text-danger text-center">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    
+                    <!-- Botão com a mesma largura e estilo arredondado -->
+                    <button class="btn btn-success mt-3 form-control rounded" type="submit">Entrar</button>
+                </form>
+
+                <div class="mt-3 text-center">
+                    <a href="{% url 'password_reset' %}">Esqueci minha senha</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script src="{% static 'js/password_strength.js' %}"></script>
 
 
 {% endblock %}
