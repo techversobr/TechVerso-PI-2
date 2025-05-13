@@ -78,7 +78,7 @@ p {
    CAROUSEL 
 =========================== */
 .carousel-item {
-  height: calc(100vh - 140px);
+  height: calc(95vh - 130px);
   width: 100%;
   object-fit: cover;
 }
