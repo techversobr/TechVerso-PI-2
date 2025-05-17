@@ -10,5 +10,6 @@ urlpatterns = [
     path('login/', views.CustomLoginView.as_view(), name='login'),
     path('', RedirectView.as_view(pattern_name='register', permanent=False), name='account_redirect'),
     path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('formularios/form_cursos/', views.form_cursos, name='form_cursos'),
+]
 
-] 

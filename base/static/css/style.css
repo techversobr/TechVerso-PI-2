@@ -142,3 +142,74 @@ p {
 }
 
 
+.tabela-wrapper {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.tabela-titulo {
+    font-size: 24px;
+    margin-top: 40px;
+    color: white;
+}
+
+.tabela-subtitulo {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.tabela-cursos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background-color: #fff;
+    color: #000;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tabela-cursos th,
+.tabela-cursos td {
+    border: 1px solid #ccc;
+    padding: 10px 12px;
+}
+
+.tabela-cursos thead th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+.tabela-cursos tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabela-cursos a {
+    color: #0645ad;
+    text-decoration: none;
+}
+
+.tabela-cursos a:hover {
+    text-decoration: underline;
+}
+
+/*Recurso para rolagem na tabela de ofertas de cursos*/
+
+   .tabela-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.tabela-cursos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-cursos thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f1f1f1;
+    z-index: 1;
+}
+

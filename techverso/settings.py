@@ -15,12 +15,15 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+   # "https://a1f3-2804-2dc-ff22-7c01-8cbf-54bb-c8bd-af4d.ngrok-free.app",
+  
 ALLOWED_HOSTS = ["127.0.0.1",
                  "localhost",]
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'base', 'static'),
-]
+
 
 
 # Application definition

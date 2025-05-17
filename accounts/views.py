@@ -17,6 +17,8 @@ def user_not_authenticated(view_func):
     return _wrapped_view
 
     
+def form_cursos(request):
+    return render(request, 'formularios/form_cursos.html')
 
 @user_not_authenticated
 def register(request):
@@ -41,3 +43,4 @@ class CustomLoginView(LoginView):
         if request.user.is_authenticated:
             return redirect('/')
         return super().get(request, *args, **kwargs)
+
