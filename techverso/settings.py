@@ -15,14 +15,13 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-   # "https://a1f3-2804-2dc-ff22-7c01-8cbf-54bb-c8bd-af4d.ngrok-free.app",
+SECRET_KEY = 'django-insecure-cc1@c!hb-zhx@hy18xi4r-11-%53)c8g$l1!wrva=$#!7rwy^k'
   
 ALLOWED_HOSTS = ["127.0.0.1",
                  "localhost",]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'base', 'static'),
+    os.path.join(BASE_DIR, 'base', 'static'),]
 
 
 
@@ -79,7 +78,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # Apps
                 'techverso.context_processors.context_social',
             ],
         },
@@ -102,8 +100,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'techverso',
-        'USER': 'techverso',
-        'PASSWORD': '1003',
+        'USER': 'root',
+        'PASSWORD': 'jpca1219',
         'HOST': 'localhost',
         'PORT': 3306,
     }

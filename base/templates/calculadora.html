@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Calculadora de Médias{% endblock %}
+
+<title>Calculadora de Médias</title>
+
+{% block content %}  
+    
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="form-container p-5 shadow rounded" style="background-color: rgba(169, 169, 169, 0.85); border: 2px solid #ccc; border-radius: 10px;">
+                <h3 class="text-center mb-5">Calculadora de Médias</h3>
+
+                <div class="form-label mt-3">
+                    <label for="tipoMedia">Tipo de Média:</label>
+                    <select id="tipoMedia" onchange="atualizarCampos()">
+                        <option value="bimestral">Média Bimestral</option>
+                        <option value="exame">Média Exame</option>
+                    </select>
+                </div>
+
+                <form id="formMedia" onsubmit="calcularMedia(event)" class="w-100">
+                    <!-- Campos para Média Bimestral -->
+                    <div id="camposBimestral">
+                        <div class="form-label mt-3">
+                            <label for="notaAtividades">Nota de Atividades:</label>
+                            <input type="number" id="notaAtividades" name="notaAtividades" step="0.01" min="0" max="10">
+                        </div>
+                        <div class="form-label mt-3">
+                            <label for="notaProvaBimestral">Nota da Prova:</label>
+                            <input type="number" id="notaProvaBimestral" name="notaProvaBimestral" step="0.01" min="0" max="10">
+                        </div>
+                    </div>
+
+                    <!-- Campos para Média Exame -->
+                    <div id="camposExame" style="display: none;">
+                        <div class="form-group mt-3">
+                            <label for="mediaBimestral">Média Bimestral:</label>
+                            <input type="number" id="mediaBimestral" name="mediaBimestral" step="0.01" min="0" max="10">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="notaExame">Nota da Prova de Exame:</label>
+                            <input type="number" id="notaExame" name="notaExame" step="0.01" min="0" max="10">
+                        </div>
+                    </div>
+                    <div id="resultado" class="mt-3 fw-bold text-center"></div>    
+                    <button class="btn btn-success mt-3 w-30" type="submit">Calcular</button>
+                    
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/calculadora.js' %}"></script>       
+
+{% endblock %}
