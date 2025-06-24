@@ -1,0 +1,215 @@
+/* ===========================
+   IMPORTS E FONTES
+=========================== */
+@font-face {
+  font-family: 'ArcadeGamer';
+  src: url('fonts/ARCADECLASSIC.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fonte-arcade {
+  font-family: 'ArcadeGamer', sans-serif;
+}
+
+/* ===========================
+   ELEMENTOS GLOBAIS
+=========================== */
+body {
+  background-image: url('../images/background-site.png');
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-repeat: repeat;
+  color: white;
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+h5 {
+  font-family: 'ArcadeGamer', sans-serif;
+  color: #fff;
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* ===========================
+   NAVBAR 
+=========================== */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    border-radius: 0;
+  }
+
+  .navbar-collapse .nav-link {
+    color: #737373;
+    font-size: 20px;
+    padding: 1rem;
+    border-bottom: 1px solid white;
+  }
+
+  .navbar-collapse .nav-link:hover {
+    color: #ccc;
+  }
+
+  .navbar-collapse .nav-item:last-child .nav-link {
+    border-bottom: none;
+  }
+
+  .navbar-toggler {
+    border: none;
+  }
+}
+
+/* ===========================
+   CAROUSEL 
+=========================== */
+.carousel-item {
+  height: calc(95vh - 130px);
+  width: 100%;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.863) 85%, transparent);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Adicionando esta linha */
+  left: 0; /* Garante que a legenda começa na borda esquerda */
+}
+
+/* ===========================
+   FOOTER 
+=========================== */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #1c2630;
+  color: #737373;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.footer a {
+  color: white;
+  margin: 0 15px;
+  font-size: 1.5em;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #ccc;
+}
+
+/* ===========================
+   CONTAINER PERSONALIZADO 
+=========================== */
+.cont {
+  width: 40%;
+  margin: 2rem auto 1rem;
+  padding-top: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 18px;
+}
+
+.cont h1 {
+  font-family: ArcadeGamer, Helvetica, sans-serif;
+  font-size: 30px;
+  margin: 0 0 2rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+
+.tabela-wrapper {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.tabela-titulo {
+    font-size: 24px;
+    margin-top: 40px;
+    color: white;
+}
+
+.tabela-subtitulo {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.tabela-cursos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background-color: #fff;
+    color: #000;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tabela-cursos th,
+.tabela-cursos td {
+    border: 1px solid #ccc;
+    padding: 10px 12px;
+}
+
+.tabela-cursos thead th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+.tabela-cursos tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabela-cursos a {
+    color: #0645ad;
+    text-decoration: none;
+}
+
+.tabela-cursos a:hover {
+    text-decoration: underline;
+}
+
+/*Recurso para rolagem na tabela de ofertas de cursos*/
+
+   .tabela-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.tabela-cursos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-cursos thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f1f1f1;
+    z-index: 1;
+}
+

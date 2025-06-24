@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% block title %}Lista de Vagas{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h1>Lista de Vagas</h1>
+
+  <form method="GET" class="mb-3">
+      <div class="row g-3 align-items-center">
+          <div class="col-md-3">
+              <label for="campo_busca" class="form-label">Buscar em:</label>
+              <select class="form-select" id="campo_busca" name="campo_busca">
+                  <option value="titulo">Título</option>
+                  <option value="descricao">Descrição</option>
+                  <option value="cidade">Cidade</option>
+                  <option value="tipo_contrato">Tipo de Contrato</option>
+                  <option value="salario">Salário</option>
+                  {% if jobs.first.data_publicacao %}
+                  <option value="data_publicacao">Data de Publicação</option>
+                  {% endif %}
+                  </select>
+          </div>
+          <div class="col-md-6">
+              <label for="termo_busca" class="form-label">Termo de Busca:</label>
+              <input type="text" class="form-control" id="termo_busca" name="termo_busca">
+          </div>
+          <div class="col-auto mt-3">
+              <button type="submit" class="btn btn-primary">Buscar</button>
+          </div>
+      </div>
+      <hr class="mt-3">
+      <div class="row mt-2 align-items-center">
+          <div class="col-auto">
+              <label for="ordenacao" class="form-label">Ordenar por:</label>
+          </div>
+          <div class="col-md-3">
+              <select class="form-select" id="ordenacao" name="ordenacao">
+                  <option value="">Padrão</option>
+                  
+                  {% if jobs.first.data_publicacao %}
+                  <option value="data_publicacao">Data de Publicação (Mais Recente)</option>
+                  <option value="-data_publicacao">Data de Publicação (Mais Antiga)</option>
+                  {% endif %}
+              </select>
+          </div>
+          <div class="col-auto">
+              <button type="submit" class="btn btn-secondary">Ordenar</button>
+          </div>
+      </div>
+  </form>
+
+  <ul class="list-group">
+      {% for job in jobs %}
+      <li class="list-group-item">
+          <h2>{{ job.titulo }}</h2>
+          <p>{{ job.local_trabalho }}</p>
+          <p><strong>Cidade:</strong> {{ job.cidade }}</p>
+          <p><strong>Salário:</strong> {{ job.salario }}</p>
+          <p><strong>Area desenvolvimento:</strong> {{ job.area_desenvolvimento }}</p>
+          <p><strong>Tipo de Contrato:</strong> {{ job.tipo_contrato }}</p>
+          <p><strong>Link de Inscrição:</strong> <a href="{{ job.link_inscricao }}" target="_blank">{{ job.link_inscricao }}</a></p>
+          {% if job.data_publicacao %}
+          <p><strong>Publicado em:</strong> {{ job.data_publicacao|date:"d/m/Y" }}</p>
+          {% endif %}
+      </li>
+      {% empty %}
+      <li class="list-group-item">Nenhuma vaga disponível no momento.</li>
+      {% endfor %}
+  </ul>
+  <button type="button" onclick="history.back()" class="mt-3">Voltar</button>
+</div>
+{% endblock %}

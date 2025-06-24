@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %} Formulário Cursos {% endblock %}
+
+{% block content %}
+
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!-- CSS -->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        <title>Cadastro</title>
+    </head>
+
+    <body>  
+
+        <div>
+            <h1 id="titulo">Formulário de Cursos </h1>
+            <br>
+        </div>
+
+        <!-- Formulário -->
+        <form>
+            <hr>
+<h2 class="tabela-titulo">Cursos já divulgados pela comunidade TechVerso</h2>
+<p class="tabela-subtitulo">As informações podem demorar até 10 minutos para serem atualizadas nesta tabela. Caso necessário, utilize o formulário acima.</p>
+
+<div class="tabela-wrapper">
+    <table class="tabela-cursos">
+        <thead>
+            <tr>
+                <th>Data da divulgação</th>
+                <th>Quem está disponibilizando o curso?</th>
+                <th>Para qual área é o curso?</th>
+                <th>O curso oferece certificado?</th>
+                <th>O curso é pago ou gratuito?</th>
+                <th>Link de direcionamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hoje</td>
+                <td>Digital Innovation One</td>
+                <td>Vários</td>
+                <td>Sim</td>
+                <td>Gratuitos e Pagos</td>
+                <td><a href="https://www.dio.me/" target="_blank">https://www.dio.me/</a></td>
+            </tr>
+            <tr>
+                <td>Hoje</td>
+                <td>RECODE</td>
+                <td>Vários</td>
+                <td>Não sei</td>
+                <td>Não sei</td>
+                <td><a href="https://recode.org.br/" target="_blank">https://recode.org.br/</a></td>
+            </tr>
+            <tr>
+                <td>Hoje</td>
+                <td>Fundação Bradesco</td>
+                <td>Vários</td>
+                <td>Não sei</td>
+                <td>Gratuito</td>
+                <td><a href="https://www.ev.org.br/" target="_blank">https://www.ev.org.br/</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+            <br><br><p id="subtitulo">Complete as informações:</p><br>
+            <!-- Pergunta 1 -->
+            <label for="ofertante"><strong>1 - Quem está disponibilizando o curso?</strong></label><span style="color:red">*</span></strong></label><br>
+            <small>Informe qual é a empresa, pessoa ou plataforma que está oferecendo o curso.</small><br>
+            <textarea id="ofertante" name="ofertante" rows="3" cols="50" required></textarea><br><br>
+
+            <!-- Pergunta 2 -->
+            <label for="area"><strong>2 - Para qual área é o curso?</strong></label><span style="color:red">*</span></strong></label><br>
+            <small>Caso tenha mais de um curso ou vários temas, informe-os separando por vírgula.</small><br>
+            <textarea id="area" name="area" rows="3" cols="50" required></textarea><br><br>
+
+            <!-- Pergunta 3 -->
+            <label><strong>3 - O curso oferece certificado?</strong></label><span style="color:red">*</span></strong></label><br>
+            <input type="radio" name="certificado" value="Sim" id="cert-sim" required>
+            <label for="cert-sim">Sim</label><br>
+
+            <input type="radio" name="certificado" value="Não" id="cert-nao">
+            <label for="cert-nao">Não</label><br>
+
+            <input type="radio" name="certificado" value="Não sei" id="cert-nd">
+            <label for="cert-nd">Não sei</label><br><br>
+
+            <!-- Pergunta 4 -->
+            <label><strong>4 - O curso é pago ou gratuito? <span style="color:red">*</span></strong></label><br>
+            <input type="radio" name="tipo" value="Gratuito" id="tipo-gratuito" required>
+            <label for="tipo-gratuito">Gratuito</label><br>
+
+            <input type="radio" name="tipo" value="Gratuitos e Pagos" id="tipo-misto">
+            <label for="tipo-misto">Gratuitos e Pagos</label><br>
+
+            <input type="radio" name="tipo" value="Pago" id="tipo-pago">
+            <label for="tipo-pago">Pago</label><br>
+
+            <input type="radio" name="tipo" value="Não sei" id="tipo-nao-sei">
+            <label for="tipo-nao-sei">Não sei</label><br><br>
+
+            <!-- Pergunta 5 -->
+            <label for="link"><strong>5 - Link de direcionamento <span style="color:red">*</span></strong></label><br>
+            <small>Informe o link para acessar o curso informado. 
+            <br>Caso não tenha um link, informe por qual meio será feito o contato com quem está oferecendo o curso.</small><br>
+            <textarea id="link" name="link" rows="3" cols="50" required></textarea><br><br>
+
+            <!-- Botão -->
+            <button type="submit">Enviar</button><br><br>
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}
