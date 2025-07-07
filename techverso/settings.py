@@ -18,7 +18,8 @@ DEBUG = True
 SECRET_KEY = 'django-insecure-cc1@c!hb-zhx@hy18xi4r-11-%53)c8g$l1!wrva=$#!7rwy^k'
   
 ALLOWED_HOSTS = ["127.0.0.1",
-                 "localhost",]
+                 "localhost",
+                 "192.168.3.2"]
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'base', 'static'),]
@@ -95,13 +96,14 @@ AUTHENTICATION_BACKENDS = [
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# Senha original da Main = jpca1219
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'techverso',
         'USER': 'root',
-        'PASSWORD': 'jpca1219',
+        'PASSWORD': '1003',
         'HOST': 'localhost',
         'PORT': 3306,
     }
