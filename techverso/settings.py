@@ -13,13 +13,11 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 SECRET_KEY = 'django-insecure-cc1@c!hb-zhx@hy18xi4r-11-%53)c8g$l1!wrva=$#!7rwy^k'
   
-ALLOWED_HOSTS = ["127.0.0.1",
-                 "localhost",
-                 "192.168.3.16"]
+ALLOWED_HOSTS = ["alpha.techverso.dev.br"]
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'base', 'static'),]
